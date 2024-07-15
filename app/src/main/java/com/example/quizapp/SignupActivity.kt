@@ -1,5 +1,6 @@
 package com.example.quizapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -19,8 +20,15 @@ class SignupActivity : AppCompatActivity() {
         binding=ActivitySignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
         firebaseAuth = FirebaseAuth.getInstance()
+
         binding.btnSignup.setOnClickListener{
             signUpUser()
+        }
+
+        binding.btnSLogin.setOnClickListener{
+            val intent = Intent(this,LoginActivity::class.java)
+            startActivity(intent)
+            finish()
         }
 
     }
